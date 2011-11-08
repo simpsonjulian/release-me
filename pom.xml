@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.builddoctor</groupId>
   <artifactId>stupid-webapp</artifactId>
-  <version>1.2</version>
+  <version>2.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Maven Webapp</name>
 
