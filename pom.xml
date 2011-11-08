@@ -23,7 +23,12 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <servlet.port>8080</servlet.port>
   </properties>
-
+  <scm>
+    <connection>scm:git:git://github.com/simpsonjulian/release-me.git</connection>
+    <developerConnection>scm:git:git@github.com:simpsonjulian/release-me.git</developerConnection>
+    <url>https://github.com/simpsonjulian/release-me</url>
+  </scm>
+  
   <build>
     <pluginManagement>
       <plugins>
