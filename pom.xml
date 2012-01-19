@@ -1,8 +1,8 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.neo4j</groupId>
+  <groupId>org.juliansimpson</groupId>
   <artifactId>example</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -13,6 +13,7 @@
   </dependencies>
   
   <build>
+    <finalName>${groupId}-${artifactId}-${version}-${buildNumber}</finalName>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -28,7 +29,7 @@
         </executions>
         <configuration>
           <doCheck>false</doCheck>
-          <doUpdate>true</doUpdate>
+          <doUpdate>false</doUpdate>
         </configuration>
       </plugin>
     </plugins>
