@@ -40,10 +40,9 @@ EOF
 }
 
 build_dependency() {
-  clean
   local version=$1
   pom_file $version
-  (cd component-to-be-depended-upon && mvn clean install )
+  (cd component-to-be-depended-upon && mvn clean install -q)
 }
 
 run_test() {
@@ -54,15 +53,24 @@ run_test() {
 }
 
 set -e
+clean
+#build_dependency 1.2.4-M01_117
+#run_test component-depending-on-latest
 
-build_dependency 1.2.4-M01_117
-run_test component-depending-on-latest
+clean
+#build_dependency 1.2.3
+#run_test component-depending-on-release
 
-build_dependency 1.2.3
-run_test component-depending-on-release
+clean
+#build_dependency 1.2.2
+#run_test component-depending-on-range
 
-build_dependency 1.2.2
-run_test component-depending-on-range
+clean
+#build_dependency 99.9
+#run_test component-depending-on-exact-version
 
-build_dependency 99.9
-run_test component-depending-on-exact-version
+clean
+build_dependency 1.8-M01+599
+build_dependency 1.8-M01+600
+build_dependency 1.9-M01+599
+run_test component-depending-on-ersatz-snapshot-version

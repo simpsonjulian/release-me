@@ -7,7 +7,7 @@
 
     <artifactId>component-to-be-depended-upon</artifactId>
     <groupId>mavenversioning</groupId>
-    <version>99.9</version>
+    <version>1.9-M01+599</version>
 
     <build>
         <plugins>
