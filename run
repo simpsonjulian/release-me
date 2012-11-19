@@ -1,3 +1,11 @@
+#!/bin/bash
+clean() {
+  rm -rf ${HOME}/.m2/repository/mavenversioning
+}
+
+pom_file() {
+  local version=$1
+  cat << EOF > component-to-be-depended-upon/pom.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,7 +15,7 @@
 
     <artifactId>component-to-be-depended-upon</artifactId>
     <groupId>mavenversioning</groupId>
-    <version>99.9</version>
+    <version>$version</version>
 
     <build>
         <plugins>
@@ -27,3 +35,34 @@
         </plugins>
     </build>
 </project>
+EOF
+
+}
+
+build_dependency() {
+  clean
+  local version=$1
+  pom_file $version
+  (cd component-to-be-depended-upon && mvn clean install )
+}
+
+run_test() {
+  local tests=$@
+  for test in $tests; do
+    ( cd $test && /usr/bin/mvn clean test )
+  done
+}
+
+set -e
+
+build_dependency 1.2.4-M01_117
+run_test component-depending-on-latest
+
+build_dependency 1.2.3
+run_test component-depending-on-release
+
+build_dependency 1.2.2
+run_test component-depending-on-range
+
+build_dependency 99.9
+run_test component-depending-on-exact-version

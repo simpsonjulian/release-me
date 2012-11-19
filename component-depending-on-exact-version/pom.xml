@@ -2,14 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>mavenversioning</artifactId>
-        <groupId>mavenversioning</groupId>
-        <version>1.0</version>
-    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>component-depending-on-exact-version</artifactId>
+    <groupId>mavenversioning</groupId>
+    <version>1.0</version>
 
     <dependencies>
         <dependency>
@@ -20,7 +18,7 @@
         <dependency>
             <groupId>mavenversioning</groupId>
             <artifactId>component-to-be-depended-upon</artifactId>
-            <version>1.2.3-M01_43</version>
+            <version>99.9</version>
         </dependency>
     </dependencies>
 

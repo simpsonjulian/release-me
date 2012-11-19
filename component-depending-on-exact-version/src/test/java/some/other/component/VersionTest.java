@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
 public class VersionTest {
     @Test
     public void shouldDependOnSpecificVersion() throws Exception {
-        assertThat(new VersionReporter().getVersion(), is("1.2.3-M01_43"));
+
+        assertThat(new VersionReporter().getVersion(), is("99.9"));
     }
 }
